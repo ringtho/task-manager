@@ -16,7 +16,7 @@ app.use(notFound)
 app.use(errorHandlerMiddleware)
 
 
-const port = 5050
+const port = process.env.PORT || 5050
 const start = async () => {
     try {
         await connectDB(process.env.MONGO_URI)
