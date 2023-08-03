@@ -3,7 +3,7 @@ const Task = require('../models/Task')
 const getTasks = async (req, res) => {
     try {
         const tasks = await Task.find({})
-        res.status(200).json({ tasks })
+        res.status(200).json({tasks, amount: tasks.length })
     } catch(err) {
         res.status(500).json({ msg: err })
     }
@@ -16,7 +16,6 @@ const createTask = async (req, res) => {
     } catch (err) {
         res.status(500).json({ msg: err })
     }
-    
 }
 
 const getTask = async (req, res) => {
